@@ -34,8 +34,11 @@ public enum Container {
 
     private Settings getSettings() {
         Map<String,Object> settings = new HashMap<>();
-        String host = mongodb.getHost() + ":" + mongodb.getFirstMappedPort();
-        settings.put(MongoDBDocumentConfigurations.HOST.get()+".1", host);
+        settings.put(MongoDBDocumentConfigurations.HOST.get()+".1", getHost());
         return Settings.of(settings);
+    }
+
+    String getHost() {
+        return mongodb.getHost() + ":" + mongodb.getFirstMappedPort();
     }
 }

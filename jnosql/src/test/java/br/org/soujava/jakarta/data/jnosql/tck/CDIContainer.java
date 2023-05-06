@@ -9,6 +9,8 @@ public enum CDIContainer {
     private final SeContainer container;
 
     {
+        System.setProperty("jnosql.document.database", "library");
+        System.setProperty("jnosql.mongodb.host", Container.INSTANCE.getHost());
         this.container = SeContainerInitializer.newInstance().initialize();
     }
 
