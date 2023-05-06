@@ -15,12 +15,12 @@
     <artifactId>redis</artifactId>
     <name>TCK sample</name>
     <parent>
-         <groupId>br.org.soujava.jakarta</groupId>
-         <artifactId>data-tck-parent</artifactId>
+        <groupId>br.org.soujava.jakarta</groupId>
+        <artifactId>data-tck-parent</artifactId>
         <version>1.0.0</version>
     </parent>
     <dependencies>
-         <dependency>
+        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.24.2</version>
