@@ -1,3 +1,4 @@
-= data-tck-proposal
+= Data TCK Proposal
+:toc: auto
 
-The TCK proposal for Jakarta Data
+The Jakarta Data project, a part of the Jakarta EE ecosystem, aims to simplify the development of data-centric applications by providing a standard API for accessing and manipulating data from various sources. As with any standard, the Jakarta Data project requires a Technology Compatibility Kit (TCK) to ensure compliance and interoperability among different implementations. This document presents a proposal for the Jakarta Data TCK, focusing on delegating Dependency Injection (DI) and annotations to the vendors.
