@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.tck;
+package br.org.soujava.jakarta.data.jnosql;
 
 /**
  * A book is a medium for recording information in the form of writing or images,

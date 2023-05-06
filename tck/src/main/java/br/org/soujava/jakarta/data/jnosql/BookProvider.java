@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.tck;
+package br.org.soujava.jakarta.data.jnosql;
 
 import com.github.javafaker.Book;
 import com.github.javafaker.Faker;
@@ -17,18 +17,18 @@ public class BookProvider implements ArgumentsProvider {
     public Stream<? extends Arguments> provideArguments(ExtensionContext context)
             throws Exception {
 
-        br.org.soujava.jakarta.data.tck.Book entity = getBook();
+        br.org.soujava.jakarta.data.jnosql.Book entity = getBook();
         return Stream.of(Arguments.of(entity,
                 LibrarySupplier.supplier()));
     }
 
-    private static br.org.soujava.jakarta.data.tck.Book getBook() {
+    private static br.org.soujava.jakarta.data.jnosql.Book getBook() {
         Book book = FAKER.book();
         BookSupplier supplier = BookSupplier.supplier();
         String isbn = UUID.randomUUID().toString();
         String title = book.title();
         String author = book.author();
-        br.org.soujava.jakarta.data.tck.Book entity = supplier.apply(isbn, title, author, 1);
+        br.org.soujava.jakarta.data.jnosql.Book entity = supplier.apply(isbn, title, author, 1);
         return entity;
     }
 }
