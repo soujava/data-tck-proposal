@@ -27,11 +27,4 @@ public interface Book {
      */
     int edition();
 
-    /**
-     * the date that books are shipped from a distribution
-     * center to online and retail stores
-     * @return the year of release
-     */
-    int release();
-
 }
