@@ -2,7 +2,6 @@ package br.org.soujava.jakarta.data.tck;
 
 import jakarta.data.repository.CrudRepository;
 
-import java.util.Iterator;
 import java.util.ServiceLoader;
 import java.util.function.Supplier;
 
