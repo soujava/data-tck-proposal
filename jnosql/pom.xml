@@ -42,6 +42,7 @@
             <groupId>br.org.soujava.jakarta</groupId>
             <artifactId>tck</artifactId>
             <version>${project.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
