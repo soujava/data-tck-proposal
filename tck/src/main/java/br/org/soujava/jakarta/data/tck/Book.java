@@ -35,6 +35,16 @@ public interface Book {
     int edition();
 
 
+    /**
+     * Create a book instance
+     *
+     * @param isbn    the isbn
+     * @param title   the title
+     * @param edition the edition
+     * @return a book's instance
+     * @throws NullPointerException     when isbn or title is null
+     * @throws IllegalArgumentException when edition is negative
+     */
     static Book of(String isbn, String title, int edition) {
         Objects.requireNonNull(isbn, "isbn is required");
         Objects.requireNonNull(title, "title is required");
