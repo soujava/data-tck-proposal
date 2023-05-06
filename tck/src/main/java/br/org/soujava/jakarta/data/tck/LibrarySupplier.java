@@ -2,6 +2,8 @@ package br.org.soujava.jakarta.data.tck;
 
 import jakarta.data.repository.CrudRepository;
 
+import java.util.Iterator;
+import java.util.ServiceLoader;
 import java.util.function.Supplier;
 
 /**
@@ -11,4 +13,18 @@ import java.util.function.Supplier;
  */
 public interface LibrarySupplier<B extends Book, T extends CrudRepository<B, String>>
         extends Supplier<T> {
+
+    /**
+     * Create a LibrarySupplier instance supplier
+     *
+     * @return a LibrarySupplier's instance
+     */
+    static <B extends Book, T extends CrudRepository<B, String>> T supplier() {
+        var serviceLoader = ServiceLoader.load(LibrarySupplier.class);
+        var iterator = serviceLoader.iterator();
+        if (iterator.hasNext()) {
+            return (T) iterator.next().get();
+        }
+        throw new IllegalStateException("No LibrarySupplier implementation found!");
+    }
 }

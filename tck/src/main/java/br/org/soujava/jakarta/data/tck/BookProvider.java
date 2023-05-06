@@ -6,6 +6,8 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ArgumentsProvider;
 
+import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
 public class BookProvider implements ArgumentsProvider {
@@ -17,7 +19,11 @@ public class BookProvider implements ArgumentsProvider {
             throws Exception {
 
         Book book = faker.book();
-        book.
-        return Stream.of(Arguments.of());
+        BookSupplier supplier = BookSupplier.supplier();
+        String isbn = UUID.randomUUID().toString();
+        String title = book.title();
+        String author = book.author();
+        return Stream.of(Arguments.of(supplier.apply(isbn, title, author, 1),
+                LibrarySupplier.supplier()));
     }
 }

@@ -31,4 +31,10 @@ public interface Book {
      * @return the book's edition
      */
     int edition();
+
+    /**
+     * The author's book
+     * @return the book's author
+     */
+    String author();
 }

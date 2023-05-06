@@ -13,24 +13,22 @@ public interface BookSupplier {
      * @param isbn the isbn
      * @param title the book's title
      * @param edition the book's edition
+     * @param author the book's author
      * @return a book instance using vendor annotation
      */
-    Book apply(String isbn, String title, int edition);
+    Book apply(String isbn, String title, String author, int edition);
 
     /**
-     * Create a book instance
+     * Create a book instance supplier
      *
      * @return a book's instance
-     * @throws NullPointerException     when isbn or title is null
-     * @throws IllegalArgumentException when edition is negative
      */
-    static BookSupplier instance() {
+    static BookSupplier supplier() {
         ServiceLoader<BookSupplier> serviceLoader = ServiceLoader.load(BookSupplier.class);
         final Iterator<BookSupplier> iterator = serviceLoader.iterator();
         if (iterator.hasNext()) {
             return iterator.next();
         }
         throw new IllegalStateException("No BookSupplier implementation found!");
-
     }
 }
