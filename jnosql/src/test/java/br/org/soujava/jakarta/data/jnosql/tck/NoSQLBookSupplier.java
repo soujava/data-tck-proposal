@@ -1,4 +1,7 @@
-package br.org.soujava.jakarta.data.jnosql;
+package br.org.soujava.jakarta.data.jnosql.tck;
+
+import br.org.soujava.jakarta.data.jnosql.Book;
+import br.org.soujava.jakarta.data.jnosql.BookSupplier;
 
 import java.util.Objects;
 

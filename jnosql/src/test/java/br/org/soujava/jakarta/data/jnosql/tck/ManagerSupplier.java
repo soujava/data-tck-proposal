@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.jnosql;
+package br.org.soujava.jakarta.data.jnosql.tck;
 
 import jakarta.annotation.Priority;
 import jakarta.enterprise.context.ApplicationScoped;

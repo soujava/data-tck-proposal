@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.jnosql;
+package br.org.soujava.jakarta.data.jnosql.tck;
 
 import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Repository;
