@@ -32,6 +32,7 @@
 
     <modules>
         <module>tck</module>
+        <module>jnosql</module>
     </modules>
 
 
