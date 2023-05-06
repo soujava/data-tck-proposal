@@ -14,7 +14,7 @@ public interface Book {
      *
      * @return the Book's id.
      */
-    String isdn();
+    String isbn();
 
     /**
      * The Book's title

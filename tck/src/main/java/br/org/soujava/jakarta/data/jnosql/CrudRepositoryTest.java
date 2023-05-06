@@ -25,12 +25,12 @@ public class CrudRepositoryTest {
         //BASE
         Awaitility.await().atMost(DURATION)
                 .until(() -> {
-                    repository.findById(book.isdn()).ifPresent(reference::set);
+                    repository.findById(book.isbn()).ifPresent(reference::set);
                     return reference.get() != null;
                 });
         Book updated = reference.get();
         SoftAssertions.assertSoftly(soft -> {
-            soft.assertThat(book.isdn()).isEqualTo(updated.isdn());
+            soft.assertThat(book.isbn()).isEqualTo(updated.isbn());
             soft.assertThat(book.author()).isEqualTo(updated.author());
             soft.assertThat(book.title()).isEqualTo(updated.title());
         });
