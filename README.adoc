@@ -2,3 +2,79 @@
 :toc: auto
 
 The Jakarta Data project, a part of the Jakarta EE ecosystem, aims to simplify the development of data-centric applications by providing a standard API for accessing and manipulating data from various sources. As with any standard, the Jakarta Data project requires a Technology Compatibility Kit (TCK) to ensure compliance and interoperability among different implementations. This document presents a proposal for the Jakarta Data TCK, focusing on delegating Dependency Injection (DI) and annotations to the vendors.
+
+== Instructions
+
+=== 1 Include the dependency:
+
+[source,xml]
+----
+<dependency>
+    <groupId>br.org.soujava.jakarta</groupId>
+    <artifactId>tck</artifactId>
+    <version>${project.version}</version>
+    <scope>test</scope>
+</dependency>
+----
+
+=== 2 Implement both: the entity and the repository
+
+This moment, be free to use either the entity's implementation annotation and the repository supplier.
+
+[source,java]
+----
+//vendor annotations
+public class BookAnyVendor implements Book {
+
+}
+@Repository
+public interface Library extends CrudRepository<BookAnyVendor, String> {
+}
+----
+
+
+=== 3 Implement the supplier
+
+On this step implement the classes to create the entity and the repository.
+
+[source,java]
+----
+public class BookVendorSupplier implements BookSupplier {
+    //implementation
+}
+
+public class LibraryDIEngine implements LibrarySupplier<NoSQLBook, Library> {
+   //implementation
+}
+----
+
+=== 4 register SPI
+
+Create the SPI to those suppliers.
+
+=== 5 append tests on the maven project
+
+Include these suppliers at the maven test:
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>${maven.surefire.plugin.version}</version>
+    <configuration>
+        <dependenciesToScan>
+            <dependency>br.org.soujava.jakarta:tck</dependency>
+        </dependenciesToScan>
+    </configuration>
+</plugin>
+----
+
+
+=== 6 run the tests
+
+
+[source,shell]
+----
+mvn clean test
+----
