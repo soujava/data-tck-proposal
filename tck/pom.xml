@@ -24,6 +24,7 @@
             <artifactId>jakarta-data-api</artifactId>
             <groupId>jakarta.data</groupId>
             <version>1.0.0-b2</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
