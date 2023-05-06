@@ -1,12 +1,10 @@
 package br.org.soujava.jakarta.data.tck;
 
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.ServiceLoader;
-
 /**
  * A book is a medium for recording information in the form of writing or images,
  * typically composed of many pages bound together and protected by a cover.
+ *
+ * @see BookSupplier to create book instance
  */
 public interface Book {
 
@@ -33,31 +31,4 @@ public interface Book {
      * @return the book's edition
      */
     int edition();
-
-
-    /**
-     * Create a book instance
-     *
-     * @param isbn    the isbn
-     * @param title   the title
-     * @param edition the edition
-     * @return a book's instance
-     * @throws NullPointerException     when isbn or title is null
-     * @throws IllegalArgumentException when edition is negative
-     */
-    static Book of(String isbn, String title, int edition) {
-        Objects.requireNonNull(isbn, "isbn is required");
-        Objects.requireNonNull(title, "title is required");
-        if (edition < 0) {
-            throw new IllegalArgumentException("The edition is negative");
-        }
-        ServiceLoader<BookSupplier> serviceLoader = ServiceLoader.load(BookSupplier.class);
-        final Iterator<BookSupplier> iterator = serviceLoader.iterator();
-        if (iterator.hasNext()) {
-            BookSupplier supplier = iterator.next();
-            return supplier.apply(isbn, title, edition);
-        }
-        throw new IllegalStateException("No BookSupplier implementation found!");
-
-    }
 }
