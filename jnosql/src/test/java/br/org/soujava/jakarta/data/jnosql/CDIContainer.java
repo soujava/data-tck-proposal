@@ -6,9 +6,13 @@ import jakarta.enterprise.inject.se.SeContainerInitializer;
 public enum CDIContainer {
     INSTANCE;
 
-    private SeContainer container;
+    private final SeContainer container;
 
     {
         this.container = SeContainerInitializer.newInstance().initialize();
+    }
+
+    <T> T get(Class<T> type) {
+        return container.select(type).get();
     }
 }
