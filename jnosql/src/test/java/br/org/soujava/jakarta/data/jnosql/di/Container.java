@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.jnosql.tck;
+package br.org.soujava.jakarta.data.jnosql.di;
 
 import org.eclipse.jnosql.communication.Settings;
 import org.eclipse.jnosql.databases.mongodb.communication.MongoDBDocumentConfiguration;

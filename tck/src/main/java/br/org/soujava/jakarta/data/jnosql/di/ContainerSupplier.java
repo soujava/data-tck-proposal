@@ -1,7 +1,5 @@
 package br.org.soujava.jakarta.data.jnosql.di;
 
-import br.org.soujava.jakarta.data.jnosql.BookSupplier;
-
 import java.util.Iterator;
 import java.util.ServiceLoader;
 import java.util.function.Function;

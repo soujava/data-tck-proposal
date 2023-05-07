@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.jnosql.tck;
+package br.org.soujava.jakarta.data.jnosql.di;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
@@ -14,7 +14,7 @@ public enum CDIContainer {
         this.container = SeContainerInitializer.newInstance().initialize();
     }
 
-    <T> T get(Class<T> type) {
+   public  <T> T get(Class<T> type) {
         return container.select(type).get();
     }
 }
