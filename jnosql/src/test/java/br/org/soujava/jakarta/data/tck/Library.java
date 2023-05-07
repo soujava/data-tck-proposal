@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.tck.tests;
+package br.org.soujava.jakarta.data.tck;
 
 import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Repository;

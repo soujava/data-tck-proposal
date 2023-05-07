@@ -1,7 +1,4 @@
-package br.org.soujava.jakarta.data.tck.tests;
-
-import br.org.soujava.jakarta.data.tck.Book;
-import br.org.soujava.jakarta.data.tck.BookSupplier;
+package br.org.soujava.jakarta.data.tck;
 
 import java.util.Objects;
 

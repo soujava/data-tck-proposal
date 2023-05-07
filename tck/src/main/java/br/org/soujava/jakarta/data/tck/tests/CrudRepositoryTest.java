@@ -21,12 +21,13 @@ public class CrudRepositoryTest {
     private static final Duration DURATION = Duration.ofSeconds(5);
 
     @Inject
-    private CrudRepository<Book, String> repository;
+    private LibrarySupplier supplier;
 
     @ParameterizedTest
     @ArgumentsSource(BookProvider.class)
     @DisplayName("Should insert when the database is not there")
     public void shouldSave(Book book) {
+        CrudRepository<Book, String> repository = (CrudRepository<Book, String>) this.supplier.get();
         repository.deleteAll();
         repository.save(book);
         AtomicReference<Book> reference = new AtomicReference<>();
