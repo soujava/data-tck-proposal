@@ -2,6 +2,7 @@ package br.org.soujava.jakarta.data.jnosql;
 
 
 import jakarta.data.repository.CrudRepository;
+import jakarta.inject.Inject;
 import org.assertj.core.api.SoftAssertions;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.DisplayName;
@@ -17,7 +18,9 @@ public class CrudRepositoryTest {
     private static final Duration DURATION = Duration.ofSeconds(5);
 
 
+    @Inject
     private CrudRepository<Book, String> repository;
+
     @ParameterizedTest
     @ArgumentsSource(BookProvider.class)
     @DisplayName("Should insert when the database is not there")
