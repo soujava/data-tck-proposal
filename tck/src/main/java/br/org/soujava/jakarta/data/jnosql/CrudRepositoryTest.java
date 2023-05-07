@@ -7,6 +7,7 @@ import org.awaitility.Awaitility;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
+import org.mockito.InjectMocks;
 
 import java.time.Duration;
 import java.util.concurrent.atomic.AtomicReference;
@@ -15,10 +16,12 @@ import java.util.concurrent.atomic.AtomicReference;
 public class CrudRepositoryTest {
     private static final Duration DURATION = Duration.ofSeconds(5);
 
+
+    private CrudRepository<Book, String> repository;
     @ParameterizedTest
     @ArgumentsSource(BookProvider.class)
     @DisplayName("Should insert when the database is not there")
-    public void shouldSave(Book book, CrudRepository<Book, String> repository) {
+    public void shouldSave(Book book) {
         repository.deleteAll();
         repository.save(book);
         AtomicReference<Book> reference = new AtomicReference<>();
