@@ -24,20 +24,6 @@ public enum DatabaseContainer {
         mongodb.start();
     }
 
-    public MongoDBDocumentManager get(String database) {
-        Settings settings = getSettings();
-        MongoDBDocumentConfiguration configuration = new MongoDBDocumentConfiguration();
-        MongoDBDocumentManagerFactory factory = configuration.apply(settings);
-        return factory.apply(database);
-    }
-
-
-    private Settings getSettings() {
-        Map<String,Object> settings = new HashMap<>();
-        settings.put(MongoDBDocumentConfigurations.HOST.get()+".1", getHost());
-        return Settings.of(settings);
-    }
-
     String getHost() {
         return mongodb.getHost() + ":" + mongodb.getFirstMappedPort();
     }
