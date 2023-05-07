@@ -18,8 +18,7 @@ public class BookProvider implements ArgumentsProvider {
             throws Exception {
 
         br.org.soujava.jakarta.data.jnosql.Book entity = getBook();
-        return Stream.of(Arguments.of(entity,
-                LibrarySupplier.supplier()));
+        return Stream.of(Arguments.of(entity));
     }
 
     private static br.org.soujava.jakarta.data.jnosql.Book getBook() {

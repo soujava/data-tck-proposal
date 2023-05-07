@@ -8,7 +8,6 @@ import org.awaitility.Awaitility;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
-import org.mockito.InjectMocks;
 
 import java.time.Duration;
 import java.util.concurrent.atomic.AtomicReference;
