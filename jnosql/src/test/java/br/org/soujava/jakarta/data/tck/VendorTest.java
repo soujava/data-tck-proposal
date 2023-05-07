@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.jnosql;
+package br.org.soujava.jakarta.data.tck;
 
 import org.junit.jupiter.api.Test;
 

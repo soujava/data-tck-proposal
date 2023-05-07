@@ -1,6 +1,6 @@
-package br.org.soujava.jakarta.data.jnosql.provider;
+package br.org.soujava.jakarta.data.tck.provider;
 
-import br.org.soujava.jakarta.data.jnosql.BookSupplier;
+import br.org.soujava.jakarta.data.tck.BookSupplier;
 import com.github.javafaker.Book;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -18,17 +18,17 @@ public class BookProvider implements ArgumentsProvider {
     public Stream<? extends Arguments> provideArguments(ExtensionContext context)
             throws Exception {
 
-        br.org.soujava.jakarta.data.jnosql.Book entity = getBook();
+        br.org.soujava.jakarta.data.tck.Book entity = getBook();
         return Stream.of(Arguments.of(entity));
     }
 
-    private static br.org.soujava.jakarta.data.jnosql.Book getBook() {
+    private static br.org.soujava.jakarta.data.tck.Book getBook() {
         Book book = FAKER.book();
         BookSupplier supplier = BookSupplier.supplier();
         String isbn = UUID.randomUUID().toString();
         String title = book.title();
         String author = book.author();
-        br.org.soujava.jakarta.data.jnosql.Book entity = supplier.apply(isbn, title, author, 1);
+        br.org.soujava.jakarta.data.tck.Book entity = supplier.apply(isbn, title, author, 1);
         return entity;
     }
 }

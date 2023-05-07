@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.jnosql;
+package br.org.soujava.jakarta.data.tck;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;

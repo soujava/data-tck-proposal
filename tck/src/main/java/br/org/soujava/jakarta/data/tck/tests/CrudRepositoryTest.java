@@ -1,9 +1,9 @@
-package br.org.soujava.jakarta.data.jnosql.tck;
+package br.org.soujava.jakarta.data.tck.tests;
 
 
-import br.org.soujava.jakarta.data.jnosql.Book;
-import br.org.soujava.jakarta.data.jnosql.di.InjectExtension;
-import br.org.soujava.jakarta.data.jnosql.provider.BookProvider;
+import br.org.soujava.jakarta.data.tck.Book;
+import br.org.soujava.jakarta.data.tck.di.InjectExtension;
+import br.org.soujava.jakarta.data.tck.provider.BookProvider;
 import jakarta.data.repository.CrudRepository;
 import jakarta.inject.Inject;
 import org.assertj.core.api.SoftAssertions;

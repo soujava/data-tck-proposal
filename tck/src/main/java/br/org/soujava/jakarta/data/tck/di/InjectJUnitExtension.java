@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.jnosql.di;
+package br.org.soujava.jakarta.data.tck.di;
 
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.AfterEachCallback;
@@ -6,8 +6,6 @@ import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.platform.commons.util.AnnotationUtils;
-
-import java.util.function.Consumer;
 
 public class InjectJUnitExtension implements BeforeAllCallback, AfterAllCallback, BeforeEachCallback, AfterEachCallback  {
 

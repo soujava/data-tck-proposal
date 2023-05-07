@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.jnosql.di;
+package br.org.soujava.jakarta.data.tck.di;
 
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 

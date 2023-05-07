@@ -1,7 +1,7 @@
-package br.org.soujava.jakarta.data.jnosql.tck;
+package br.org.soujava.jakarta.data.tck.tests;
 
 
-import br.org.soujava.jakarta.data.jnosql.Book;
+import br.org.soujava.jakarta.data.tck.Book;
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
