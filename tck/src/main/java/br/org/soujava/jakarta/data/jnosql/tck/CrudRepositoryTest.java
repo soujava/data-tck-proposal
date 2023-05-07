@@ -2,6 +2,7 @@ package br.org.soujava.jakarta.data.jnosql.tck;
 
 
 import br.org.soujava.jakarta.data.jnosql.Book;
+import br.org.soujava.jakarta.data.jnosql.di.InjectExtension;
 import br.org.soujava.jakarta.data.jnosql.provider.BookProvider;
 import jakarta.data.repository.CrudRepository;
 import jakarta.inject.Inject;
@@ -15,6 +16,7 @@ import java.time.Duration;
 import java.util.concurrent.atomic.AtomicReference;
 
 @DisplayName("The scenario cover the basic methods to CrudRepository")
+@InjectExtension
 public class CrudRepositoryTest {
     private static final Duration DURATION = Duration.ofSeconds(5);
 
