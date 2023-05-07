@@ -1,6 +1,8 @@
-package br.org.soujava.jakarta.data.jnosql;
+package br.org.soujava.jakarta.data.jnosql.tck;
 
 
+import br.org.soujava.jakarta.data.jnosql.Book;
+import br.org.soujava.jakarta.data.jnosql.provider.BookProvider;
 import jakarta.data.repository.CrudRepository;
 import jakarta.inject.Inject;
 import org.assertj.core.api.SoftAssertions;
@@ -15,7 +17,6 @@ import java.util.concurrent.atomic.AtomicReference;
 @DisplayName("The scenario cover the basic methods to CrudRepository")
 public class CrudRepositoryTest {
     private static final Duration DURATION = Duration.ofSeconds(5);
-
 
     @Inject
     private CrudRepository<Book, String> repository;

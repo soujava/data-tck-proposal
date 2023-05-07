@@ -1,5 +1,6 @@
-package br.org.soujava.jakarta.data.jnosql;
+package br.org.soujava.jakarta.data.jnosql.provider;
 
+import br.org.soujava.jakarta.data.jnosql.BookSupplier;
 import com.github.javafaker.Book;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.extension.ExtensionContext;
