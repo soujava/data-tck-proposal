@@ -35,7 +35,7 @@ public interface Library extends CrudRepository<BookAnyVendor, String> {
 
 === 3 Implement the supplier
 
-On this step implement the classes to create the entity and the repository.
+On this step implement the classes to create the entity and the DI engine.
 
 [source,java]
 ----
@@ -43,9 +43,10 @@ public class BookVendorSupplier implements BookSupplier {
     //implementation
 }
 
-public class LibraryDIEngine implements LibrarySupplier<NoSQLBook, Library> {
-   //implementation
+public class DISupplier implements ContainerSupplier {
+      //implementation
 }
+
 ----
 
 === 4 register SPI
