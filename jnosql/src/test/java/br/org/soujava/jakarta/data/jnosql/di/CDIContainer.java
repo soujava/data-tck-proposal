@@ -1,20 +1,23 @@
 package br.org.soujava.jakarta.data.jnosql.di;
 
 import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
 
-public enum CDIContainer {
-    INSTANCE;
+import java.util.function.Consumer;
 
+class CDIContainer implements DIContainer {
     private final SeContainer container;
 
-    {
-        System.setProperty("jnosql.document.database", "library");
-        System.setProperty("jnosql.mongodb.host", Container.INSTANCE.getHost());
-        this.container = SeContainerInitializer.newInstance().initialize();
+    CDIContainer(SeContainer container) {
+        this.container = container;
     }
 
-   public  <T> T get(Class<T> type) {
-        return container.select(type).get();
+    @Override
+    public Consumer<Object> inject(InjectJUnitExtension injectJUnitExtension) {
+        return null;
+    }
+
+    @Override
+    public void close() {
+        this.container.close();
     }
 }
