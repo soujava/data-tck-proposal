@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 public class InjectJUnitExtension implements BeforeAllCallback, AfterAllCallback, BeforeEachCallback, AfterEachCallback  {
 
     private DIContainer container;
-    private DIContext<Object> context;
+    private DIContext context;
 
     @Override
     public void beforeAll(final ExtensionContext extensionContext) {
@@ -48,7 +48,7 @@ public class InjectJUnitExtension implements BeforeAllCallback, AfterAllCallback
         }
     }
 
-    public void setContext(DIContext<Object> context){
+    public void setContext(DIContext context){
         this.context = context;
     }
 
