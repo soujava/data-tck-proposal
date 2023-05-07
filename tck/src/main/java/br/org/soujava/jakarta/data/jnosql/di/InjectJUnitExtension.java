@@ -1,4 +1,4 @@
-package br.org.soujava.jakarta.data.jnosql;
+package br.org.soujava.jakarta.data.jnosql.di;
 
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.AfterEachCallback;
@@ -7,28 +7,21 @@ import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.platform.commons.util.AnnotationUtils;
 
-import javax.enterprise.context.spi.CreationalContext;
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.spi.AnnotatedType;
-import javax.enterprise.inject.spi.BeanManager;
-import javax.enterprise.inject.spi.InjectionTarget;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class InjectJUnitExtension implements BeforeAllCallback, AfterAllCallback, BeforeEachCallback, AfterEachCallback  {
 
-    private SeContainer container;
-    private CreationalContext<Object> context;
+    private DIContainer container;
+    private DIContext<Object> context;
 
     @Override
     public void beforeAll(final ExtensionContext extensionContext) {
-        final CDIExtension config = AnnotationUtils.findAnnotation(extensionContext.getElement(), CDIExtension.class)
+        final InjectExtension config = AnnotationUtils.findAnnotation(extensionContext.getElement(), InjectExtension.class)
                 .orElse(null);
         if (config == null) {
             return;
         }
-        Supplier<SeContainer> supplier = new ContainerSupplier(config);
-        container = supplier.get();
+        container = ContainerSupplier.supplier(config);
     }
 
     @Override
@@ -44,17 +37,7 @@ public class InjectJUnitExtension implements BeforeAllCallback, AfterAllCallback
         if (container == null) {
             return;
         }
-        extensionContext.getTestInstance().ifPresent(inject());
-    }
-
-    private Consumer<Object> inject() {
-        return instance ->  {
-            final BeanManager manager = container.getBeanManager();
-            final AnnotatedType<?> annotatedType = manager.createAnnotatedType(instance.getClass());
-            final InjectionTarget injectionTarget = manager.createInjectionTarget(annotatedType);
-            context = manager.createCreationalContext(null);
-            injectionTarget.inject(instance, context);
-        };
+        extensionContext.getTestInstance().ifPresent(container.inject(this));
     }
 
     @Override
@@ -65,7 +48,11 @@ public class InjectJUnitExtension implements BeforeAllCallback, AfterAllCallback
         }
     }
 
-    private void doClose(final SeContainer container) {
+    public void setContext(DIContext<Object> context){
+        this.context = context;
+    }
+
+    private void doClose(final DIContainer container) {
         container.close();
     }
 }
