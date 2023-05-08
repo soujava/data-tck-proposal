@@ -6,7 +6,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 @ApplicationScoped
-public class LibrarySupplierPrducer implements LibrarySupplier{
+public class LibrarySupplierProducer implements LibrarySupplier{
 
     @Inject
     private Library library;
